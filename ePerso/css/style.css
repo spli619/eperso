@@ -1,0 +1,273 @@
+/* pour diminuer la taille des font sur l'ensemble du site */
+html {
+    font-size: 14px;
+}
+body {
+    /* léger gris */
+    background-color: #f7f7f9;
+    /* les valeurs de bootstrap 3*/
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.bgcolor-orange-ephec {
+    background-color: rgb(241, 120, 48);
+}
+
+/* pour avoir menu déroulant même taille que les valeurs de bootstrap 3 */
+.dropdown-menu {
+    font-size: 14px;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    background-color: #fff;
+    min-height: 600px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists
+   will truncate terms that are too long to fit in the left column
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+label {
+    font-weight: 600; /* semi-bold pour les label */
+}
+
+/*.lablelbold {
+	font-weight: bold;
+	margin-bottom: .5rem
+}
+
+.labelnormal {
+	margin-bottom: .5rem;
+	margin-left: 0;
+}*/
+
+/* pour ne pas devoir rajouter la classe css text-danger dans les Html.ValidationMessageFor */
+.field-validation-error {
+    color: #dc3545 !important;
+}
+
+a.field-validation-error:hover, a.field-validation-error:focus {
+    color: #bd2130 !important;
+}
+
+.field-validation-valid {
+    display: none;
+}
+/* pour ne pas devoir rajouter la classe css text-danger dans les Html.ValidationSummary*/
+.validation-summary-errors {
+    color: #dc3545 !important;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* pour scroller dans le menu */
+nav.navbar.fixed-top {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+/* pour afficher un bord dans les tab bootstrap */
+.tab-content {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* pour les horaires */
+.font12px {
+    font-size: 13px;
+}
+
+/* -----------------------------
+   css for slider : begin
+   ---------------------------- */
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    height: 100vh;
+    z-index: 999;
+    background: #20414e;
+    color: #fff;
+    transition: all 0.3s;
+    /* pour scroller dans le slider */
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+#sidebar.active {
+    display:none;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #333;
+    background: #fff;
+}
+
+#sidebar ul li a.selected {
+    color: #333;
+    background: #fff;
+}
+
+#sidebar a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #20414e;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #20414e;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.fa-bars.show, .fa-times.show {
+    display: inline-block;
+}
+
+.fa-bars.hide, .fa-times.hide {
+    display: none;
+}
+
+.logo-ephec-eperso {
+    max-width: 100%;
+    height: auto;
+}
+
+.divwelcom {
+    color: #fff;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: 100%;
+    padding: 54px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 1639px) {
+    #sidebar {
+        display: none;
+    }
+
+    #sidebar.active {
+        display:inline-block;
+    }
+
+    #sidebarCollapse span {
+        display: none;
+    }
+
+    .fa-bars.show, .fa-times.show {
+        display: none;
+    }
+
+    .fa-bars.hide, .fa-times.hide {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 576px) {
+    .divwelcom {
+        display:none;
+    }
+}
+
+@media (max-width: 384px) {
+    .logo-ephec-eperso {
+        max-width: 75%;
+        height: auto;
+    }
+}
+
+@media (max-width: 230px) {
+    .logo-ephec-eperso {
+        display: none;
+    }
+}
+
+/* -----------------------------
+   css for slider : end
+   ---------------------------- */

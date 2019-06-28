@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ePerso - R&#233;sultat par ann&#233;e</title>
+    <link href="Images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+
+    <link href="jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
+
+
+    <!-- Pour le bouton du slider on utilise https://fontawesome.com/ mais on pourrait l'utiliser pour les icon -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<div class="wrapper">
+    <nav id="sidebar" style="padding-top:54px">
+        <ul class="list-unstyled components">
+            <li><a href="#" class="">Accueil</a></li>
+            <li><a href="#" class="">Données personnelles</a></li>
+            <li><a href="#" class="">Inscription</a></li>
+            <li><a href="#" class="">Inscription 2° session</a></li>
+            <li><a href="#" class="">Dispenses</a></li>
+            <li><a href="#" class="">Mes documents</a></li>
+            <li>
+                <a href="#hehorairesub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Horaires</a>
+                <ul class="collapse list-unstyled" id="hehorairesub">
+                    <li><a href="#" class="">Cours</a></li>
+                    <li><a href="#" class="">Interro/Examen</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="">Fiche de cours</a></li>
+            <li><a href="#" class="selected">Résultats</a></li>
+            <li><a href="#" class="">Presse</a></li>
+            <li>
+                <a href="#hestagesub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Stage</a>
+                <ul class="collapse list-unstyled" id="hestagesub">
+                    <li><a href="#" class="">Demande</a></li>
+                    <li><a href="#" class="">Recherche offre</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#hesarsub" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Service d’Aide à la Réussite</a>
+                <ul class="collapse list-unstyled" id="hesarsub">
+                    <li><a href="#" class="">Informations sur le SAR</a></li>
+                    <li><a href="#" class="">Offre de tutorat</a></li>
+                    <li><a href="#" class="">Demande de tutorat</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">Portail applications EPHEC</a></li>
+            <li><a href="#">Se déconnecter</a></li>
+        </ul>
+    </nav>
+    <nav class="navbar navbar-dark fixed-top bgcolor-orange-ephec">
+        <div>
+            <button type="button" id="sidebarCollapse" class="btn btn-outline-light" style="width:auto">
+                <i id="iconCross" class="fas fa-times show"></i>
+                <i id="iconBars" class="fas fa-bars hide"></i>
+                Menu
+            </button>
+            <img src="Images/logo-ephec-eperso.jpg" class="logo-ephec-eperso" />
+        </div>
+        <div class="divwelcom">
+            Bienvenue HANQUET Brian
+        </div>
+    </nav>
+    <div id="content">
+        <div class="container body-content">
+
+
+
+            <style>
+                table.mytable {
+                    border-collapse: separate;
+                    border-spacing: 2px;
+                    width: 100%;
+                }
+
+                .mytable th {
+                    background: #6bb1c9;
+                    color: #fff;
+                    font-size: 10pt;
+                }
+
+                .mytable tr:nth-child(even) {
+                    background: #e1f0f4;
+                }
+
+                .mytable tr:nth-child(odd) {
+                    background: #f6fbfc;
+                }
+
+                .mytable td {
+                    padding: 5px;
+                    font-size: 10pt;
+                    text-align: center;
+                }
+            </style>
+
+            <h3>Résultat par année</h3>
+
+            <div class="p-2 mb-2 bg-warning">
+                <span>Attention, la poursuite du cycle ne garantit pas votre finançabilité, telle que prévue par le décret du 11 avril 2014 adaptant le financement des établissements d’enseignement supérieur à la nouvelle organisation des études, et donc votre inscription.</span>
+            </div>
+
+            <form action="#" id="myform" method="post">    <table class="table-sm table-borderless border mb-2">
+                <tr>
+                    <td>
+                        Veuillez sélectionner une année académique :
+                        <select id="Annee" name="Annee"><option selected="selected" value="2018">2018-2019</option>
+                            <option value="2017">2017-2018</option>
+                            <option value="2016">2016-2017</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>Afficher les résultats par :</td>
+                                <td><input id="Affichage" name="Affichage" onclick="showACTA()" type="radio" value="Cours" /> Activités d'apprentissage/Cours</td>
+
+                                <td>&nbsp;</td>
+                                <td><input checked="checked" id="Affichage" name="Affichage" onclick="showUE()" type="radio" value="Bloc" /> Unités d'enseignement/Blocs de cours</td>
+
+
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            </form>
+            <div id="results"></div>
+
+            <br />
+            <span style="font-weight: bold">
+                        N'oubliez pas de vous inscrire à votre seconde session d'examens avant le 11 août 2019 23h59 via l'onglet "Inscription seconde session".
+                        <br />
+                    </span>
+            <table style="border:1px solid black; width:auto; padding: 5px">
+                <tr>
+                    <td style="font-size:9pt;text-decoration:underline">
+                        Informations relatives aux voies de recours
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-size:9pt;">
+                        RECOURS INTERNES (art. 106 à 109 du Règlement des études et des examens de la Haute École)
+                        Toute plainte relative à une quelconque irrégularité dans le déroulement des examens est
+                        adressée sous pli recommandé au Secrétaire du jury d'examens de l'EPHEC, avenue Konrad
+                        Adenauer, 3 à 1200 Bruxelles au plus tard dans les trois jours ouvrables qui suivent la notification
+                        des résultats de l'épreuve.
+                        <br />
+                        RECOURS EXTERNES (art. 110, 149 et 150 du Règlement des études et des examens de la Haute
+                        École) Outre les procédures de recours internes prévues dans le présent règlement, toutes les
+                        décisions prises par les autorités de la Haute école sont, en vertu de l'article 2 du décret du 22
+                        décembre 1994 relatif à la publicité de l'administration, susceptibles d'un recours auprès des
+                        Cours et tribunaux du pouvoir judiciaire et/ou du Conseil d'Etat.
+                        Par autorité de la Haute École, il faut entendre, entre autres : Conseil d'administration, Collège
+                        de direction, directeur de catégorie, jury d'examens, commission de recours.
+                        Toute décision est donc susceptible d'un recours au choix (arrêt de la Cour d'Arbitrage du 9 avril
+                        2003 n°41/2003) devant le Conseil d'État ou les juridictions civiles - Juge du Tribunal de
+                        Première instance de Bruxelles, exclusivement compétents. Recours en annulation, dans les
+                        soixante jours de la présente notification, devant le Conseil d'État, rue de la Science, 33 à 1040
+                        Bruxelles. Recours devant le Juge des référés ou le Juge du Tribunal de Première instance de
+                        Bruxelles, Palais de Justice - rue des Quatre Bras, 13 - Extension - 1000 Bruxelles.
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="container">
+            <footer class="text-right small">
+                <p>&copy; 2019 - EPHEC v2019.6.28.2</p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script src="jquery/jquery-3.4.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+    $('#sidebarCollapse').click(function () {
+        $('#sidebar, #content').toggleClass('active');
+        //$('.collapse.in').toggleClass('in');
+        //$('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        $('#iconCross, #iconBars').toggleClass('show');
+        $('#iconCross, #iconBars').toggleClass('hide');
+    });
+</script>
+</body>
+</html>
